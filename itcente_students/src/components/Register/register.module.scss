@@ -1,0 +1,185 @@
+.register{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    .admin{
+        position: absolute;
+        right: 20px;
+        top: 30px;
+        border: none;
+        outline: none;
+        padding: 10px 40px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        color: #ffff;
+        background: linear-gradient(120deg, #f8345f, #5b33ad);
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+}
+
+
+    .right_wall{
+        width: 100%;
+        height: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all .3s;
+        }
+    }
+
+
+    .left_wall{
+        width: 100%;
+        height: 100%;
+        background:linear-gradient(120deg, #f8345f, #5b33ad);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px 0;
+        overflow-y:scroll ;
+        h1{
+            text-align: center;
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 20px;
+            margin-top: 80px;
+        }
+
+        form{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+
+            label{
+                width: 50%;
+                color:#fff;
+                font-weight: bolder;
+                font-size: 18px;
+            }
+
+            input{
+                width:50%;
+                padding: 10px;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+            }
+
+            input[type="submit"]{
+                    background-color: rgb(17, 228, 17);
+                    color: #fff;
+                    font-weight: 800;
+                    cursor: pointer;
+            }
+
+            select{
+                width: 50%;
+                padding: 10px;
+                font-size: 18px;
+                outline: none;
+            }
+            p{
+                color: #fff;
+                font-size: 18px;
+                text-transform: capitalize;
+            }
+
+            .offert{
+                width: 200px;
+                display: flex;
+                justify-content: center;
+                padding: 20px 0;
+                gap: 20px;
+               
+
+                input{
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    
+                }
+
+                input:nth-of-type(1)::before{
+                    content: "Ha";
+               
+                    padding: 10px 40px;
+                    color: #fff;
+                    border-radius: 30px;
+                    display: flex;
+                    margin-right: 10px;
+                    background-color: #39ea03;
+                    
+                   
+                }
+                input:nth-of-type(2)::before{
+                    content: "Yo'q";
+                    padding: 10px 40px;
+                    color: #fff;
+                    border-radius: 30px;
+                    background-color: #39ea03;
+                   
+                }
+
+               
+            }
+        }
+    }
+}
+
+
+
+
+body::-webkit-scrollbar {
+    width: 5px;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background:linear-gradient(120deg, #f8345f, #5b33ad);
+    outline: 1px solid slategrey;
+  }
+.left_wall::-webkit-scrollbar {
+    width:5px;
+  }
+   
+  .left_wall::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  .left_wall::-webkit-scrollbar-thumb {
+    background:linear-gradient(120deg, #f8345f, #5b33ad);
+    outline: 1px solid slategrey;
+  }
+
+
+.success{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #000000a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        width: 1000px;
+        height: 800px;
+ 
+    }
+}
