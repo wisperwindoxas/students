@@ -16,22 +16,34 @@ const DB_NAME = process.env.DB_NAME
 app.use(cors())
 app.use(express.json())
 
+async function startDb(){
+    try {
+        await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.lbfz2uc.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`)
+        .then(() => console.log("Db Ok"))
+    } catch (error) {
+            console.log(error);
+    }
+}
+
+startDb()
 
 app.post('/register', async (req, res) =>{
-    const {first_name,last_name, age,phone, region , status,  gender, course} = req.body
 
-    const students = new User({
-        first_name,
-        last_name,
-        age,
-        phone,
-        region,
-        status,
-        gender,
-        course
-    })
 
     try {
+        const {first_name,last_name, age,phone, region , status,  gender, course} = req.body
+
+        const students = new User({
+            first_name,
+            last_name,
+            age,
+            phone,
+            region,
+            status,
+            gender,
+            course
+        })
+
         await students.save()
         res.json({students,message:"Malumotlar qo'shish muaffaqiyatli amalga oshirildi"})
     } catch (error) {
@@ -56,20 +68,9 @@ app.get('/students', async (req, res) => {
 
 
 
-async function startDb(){
-    try {
-        await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.lbfz2uc.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`)
-        .then(() => console.log("Db Ok"))
-    } catch (error) {
-            console.log(error);
-    }
-}
 
-startDb()
 
-app.get('/', (req, res) => {
-    res.json({name:"Hello"})
-})
+
 
 
 app.listen(PORT, () =>{

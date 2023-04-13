@@ -28,28 +28,21 @@ export default function Register() {
     const { register, handleSubmit, reset, formState: { isSubmitSuccessful, errors} } = useForm();
 
 
-    const onSubmit = data => PostStudents(data)
+    
 
-    React.useEffect(() => {
-        reset({
-            first_name: "",
-            last_name:"",
-            age:"",
-            phone:"",
-            region:"",
-            status:"",
-            gender:"",
-            course:""
-        })
-      }, [isSubmitSuccessful])
-      
+   const onSubmit = async  data => {
 
+       await fetch("http://localhost:3004/register", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+          console.log(data);
+      }
 
- 
-   
-    async function PostStudents(data){
-            await axios.post(`http://localhost:3004/register`, data)
-     }
+  
 
     return (
       <div className={style.register}>
@@ -222,11 +215,11 @@ export default function Register() {
             <input type="submit" value={'Yuborish'} />
           </form>
         </div>
-        {isSubmitSuccessful && (
+        {/* {isSubmitSuccessful && (
           <div className={style.success}>
             return <img src={thank[randomThankImg]} />
           </div>
-        )}
+        )} */}
       </div>
     );
 }
