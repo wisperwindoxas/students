@@ -27,28 +27,28 @@ async function startDb(){
 
 startDb()
 
+
+
+
 app.post('/register', async (req, res) =>{
 
-
-    try {
-        const {first_name,last_name, age,phone, region , status,  gender, course} = req.body
-
-        const students = new User({
-            first_name,
-            last_name,
-            age,
-            phone,
-            region,
-            status,
-            gender,
-            course
-        })
-
-        await students.save()
-        res.json({students,message:"Malumotlar qo'shish muaffaqiyatli amalga oshirildi"})
-    } catch (error) {
-        res.json({message:"Malumotlarni qo'shishda xatolik yuz berdi!"})
-    }
+    // try{
+          const {first_name,last_name, age,phone, region , status,  gender, course} = req.body
+          const students = new User({
+              first_name,
+              last_name,
+              age,
+              phone,
+              region,
+              status,
+              gender,
+              course
+          })
+         const regisStudent = await students.save()
+         res.json(regisStudent)
+    // } catch (error) {
+    //     res.json({message:"Malumotlarni qo'shishda xatolik yuz berdi!"})
+    // }
 
  
 })

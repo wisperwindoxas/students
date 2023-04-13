@@ -30,18 +30,21 @@ export default function Register() {
 
     
 
-   const onSubmit = async  data => {
+   const onSubmit = (data) => Register(data)
 
-       await fetch("http://localhost:3004/register", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-          console.log(data);
+       
+      
+
+
+    async function Register(data){
+        const regStudent = JSON.stringify(data)
+        try {
+        await axios.post('http://localhost:3004/register', regStudent);
+       } catch (error) {
+                console.log(error);
+       }
+          console.log(regStudent);
       }
-
   
 
     return (
@@ -107,17 +110,17 @@ export default function Register() {
             <input
               type="tel"
               placeholder="Telefon raqamingiz +998 (xx) xxx-xx-xx"
-              {...register('mobile', {
+              {...register('phone', {
                 required: 'Telefon raqamingizni kiriting',
                 minLength: 9,
                 maxLength: 13,
               })}
             />
             <div>
-              {errors?.mobile && (
+              {errors?.phone && (
                 <h4 style={{ color: 'black' }}>
-                  {errors?.mobile?.message || 'Error'}
-                </h4>
+                  {errors?.phone?.message || 'Error'}
+                </h4>ç
               )}
             </div>
             <input
@@ -194,7 +197,7 @@ export default function Register() {
                 </h4>
               )}
             </div>
-            <p>Offert shartnomasiga rozimisiz </p>
+            {/* <p>Offert shartnomasiga rozimisiz </p>
             <div className={style.offert}>
               <input
                 {...register('developer', { required: true })}
@@ -210,7 +213,7 @@ export default function Register() {
                 type="radio"
                 value="No"
               />
-            </div>
+            </div> */}
 
             <input type="submit" value={'Yuborish'} />
           </form>
