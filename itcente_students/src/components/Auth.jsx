@@ -35,8 +35,10 @@ export default function Auth() {
 
   return (
     <div className={style.auth}>
+     
       <h1>Xush kelibsiz IT markaz Platformasiga</h1>
       <h2>IT Markaz O'quvchilari Ro'yxati</h2>
+      <img src="https://sam-itcenter.uz/wp-content/uploads/2022/09/cropped-Logo-Shablon.png" alt="" />
       <form onSubmit={handleSubmit((data) => isCheckAdmin(data))}>
         <input
           {...register('firstName', { required: 'Login kiriting' })}

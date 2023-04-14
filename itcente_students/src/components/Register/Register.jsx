@@ -37,14 +37,19 @@ export default function Register() {
 
 
     async function Register(data){
-        const regStudent = JSON.stringify(data)
+        
         try {
-        await axios.post('http://localhost:3004/register', regStudent);
+        await axios.post('http://localhost:3004/register', data);
        } catch (error) {
                 console.log(error);
        }
-          console.log(regStudent);
+          console.log(data);
       }
+
+
+      React.useEffect(() => {
+          reset()
+      }, [isSubmitSuccessful])
   
 
     return (
@@ -120,7 +125,7 @@ export default function Register() {
               {errors?.phone && (
                 <h4 style={{ color: 'black' }}>
                   {errors?.phone?.message || 'Error'}
-                </h4>ç
+                </h4>
               )}
             </div>
             <input

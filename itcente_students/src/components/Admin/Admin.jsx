@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './admin.module.scss'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export default function Admin() {
 
@@ -20,6 +21,10 @@ export default function Admin() {
 
   return (
     <div className={style.admin}>
+        <div className={style.menu}>
+            <Link to="/"><button>Ro'yxatga Olish</button></Link>
+            <button>Gurpa Qo'shish</button>
+        </div>
                 <h2 className={style.title}>Qumqo'rg'onda O'quv Markazida o'qiyotgan o'quvchilar Ro'yxati</h2>
             <div className={style.table}>
                     <table >
@@ -29,6 +34,7 @@ export default function Admin() {
                                 <th>Familyasi</th>
                                 <th>Ismi</th>
                                 <th>Yoshi</th>
+                                <th>Telefon Raqam</th>
                                 <th>Mahalasi</th>
                                 <th>Ijtimoyi xolati</th>
                                 <th>Jinsi</th>
@@ -46,11 +52,19 @@ export default function Admin() {
                                             <td>{item.first_name}</td>
                                             <td>{item.last_name}</td>
                                             <td>{item.age}</td>
+                                            <td>{item.phone}</td>
                                             <td>{item.region}</td>
                                             <td>{item.status}</td>
                                             <td>{item.gender}</td>
                                             <td>{item.course}</td>
-                                            <td>{item.course === "Web Dasturlash" ? "6-8 oy": item.course === "Kompyuter Sovatxonligi 1.0" ? "1-2 oy" :""}</td>
+                                            <td>{
+                                                item.course === "Web Dasturlash" ? "6-8 oy":
+                                                item.course === "Kompyuter Sovatxonligi 1.0" ? "1-2 oy" :
+                                                item.course === "Kompyuter Sovatxonligi 2.0" ? "1-2 oy" :
+                                                item.course === "Kompyuter Sovatxonligi Premium" ? "1-2 oy" :""
+                                                }
+                                                
+                                                </td>
                                             <td>{
                                                 
                                                 item.course === "Web Dasturlash" ? "300 ming so'm":

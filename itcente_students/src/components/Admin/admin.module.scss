@@ -2,6 +2,24 @@
     width: 100%;
     height: 100vh;
     background:linear-gradient(120deg, #f8345f, #5b33ad);
+    .menu{
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        button{
+            padding: 10px 30px;
+            border: none;
+            outline: none;
+            background:linear-gradient(120deg, #f8345f, #fb9608);
+            color: #fff;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
 
     .title{
         text-align: center;
