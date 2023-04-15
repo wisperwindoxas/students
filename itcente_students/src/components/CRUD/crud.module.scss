@@ -1,0 +1,105 @@
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: #000000ac;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    .crud{
+        width: 600px;
+        height: auto;
+     
+        margin: 20px auto;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        overflow-y:scroll ;
+        background: linear-gradient(120deg, #f8345f, #5b33ad);
+        form {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+        
+                label {
+                    width: 100%;
+                    color: #000000;
+                    font-weight: bolder;
+                    font-size: 18px;
+                }
+        
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 18px;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                    
+                }
+        
+                input[type="submit"] {
+                    width: 50%;
+                    background-color: rgb(17, 228, 17);
+                    color: #fff;
+                    font-weight: 800;
+                    cursor: pointer;
+                    border-radius: 30px;
+                        -webkit-border-radius: 30px;
+                        -moz-border-radius: 30px;
+                        -ms-border-radius: 30px;
+                        -o-border-radius: 30px;
+                }
+        
+                select {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 18px;
+                    outline: none;
+                }
+        
+                p {
+                    color: #fff;
+                    font-size: 18px;
+                    text-transform: capitalize;
+                }
+            }
+    }
+}
+
+
+.btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .close{
+            width: 50%;
+            background-color: rgb(228, 77, 17);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 18px;
+            border-radius:30px ;
+            -webkit-border-radius:30px ;
+            -moz-border-radius:30px ;
+            -ms-border-radius:30px ;
+            -o-border-radius:30px ;
+}
+}
