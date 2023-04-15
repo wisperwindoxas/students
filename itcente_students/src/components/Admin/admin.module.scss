@@ -64,8 +64,29 @@
                     text-align: center;
                     padding: 10px;
                 }
+                
             }
         }
     }
 }
 
+
+
+.crud{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        background: transparent;
+        border: none;
+        outline: none;
+        margin-right: 20px;
+        cursor: pointer;
+        img{
+         
+            object-fit:cover;
+        }
+    }
+}

@@ -79,13 +79,13 @@ app.delete('/students/:id', async (req, res) => {
     }
 })
 
-app.path('/students/:id', async (req, res) => {
-
+app.patch('/students/:id', async (req, res) => {
     try {
         const studentId = req.params.id
         const { first_name, last_name, age, phone, region, status, gender, course } = req.body
+        console.log(studentId);
 
-        await User.updateOne({
+        await User.findOneAndUpdate({
             _id: studentId,
         },{
             first_name,

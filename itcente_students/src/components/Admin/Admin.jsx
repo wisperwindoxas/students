@@ -2,11 +2,13 @@ import React from 'react'
 import style from './admin.module.scss'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Crud from '../CRUD/Crud'
 
 export default function Admin() {
 
     const [students, setStudents] = React.useState([])
-
+    const [isEdit, setIsEdit] = React.useState(false)
+    const [remove, setRemove] = React.useState()
     
     React.useEffect(() => {
         async function getStudents(){
@@ -14,7 +16,12 @@ export default function Admin() {
             setStudents(data.data)
            }
            getStudents()
-    },[])
+    },[remove])
+
+    async function deleteStudent(id){
+        setRemove(id)
+        await axios.delete(`http://localhost:3004/students/${id}`)
+    }
 
 
     console.log(students);
@@ -41,6 +48,7 @@ export default function Admin() {
                                 <th>Kurs nomi</th>
                                 <th>Kurs davomiyligi (oy)</th>
                                 <th>Kurs narxi (oy)</th>
+                                <th>Malumotlar bilan ishlash</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +81,10 @@ export default function Admin() {
                                                 item.course === "Kompyuter Sovatxonligi Premium" ? "400 ming so'm":item.course === "Ingliz tili" ? "180 ming so'm":""
                                                 
                                                 }</td>
+                                                <td className={style.crud}>
+                                                    <button onClick={() => setIsEdit(true)} className={style.pencil}><img src="./img/pencil.svg" alt="" /></button>
+                                                    <button onClick={() => deleteStudent(item._id)} className={style.remove}><img src="./img/remove.svg" alt="" /></button>
+                                                </td>
 
                                         </tr>
                                 )
@@ -82,6 +94,10 @@ export default function Admin() {
                         </tbody>
                     </table>
             </div>
+
+
+            {isEdit ? <Crud/> : ""}
+
     </div>
   )
 }
